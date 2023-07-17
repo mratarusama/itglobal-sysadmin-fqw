@@ -1,0 +1,6 @@
+practice:
+  hosts:
+    my_serverspace_host:
+      ansible_host: 93.183.73.131
+      ansible_port: 10022
+      ansible_user: root

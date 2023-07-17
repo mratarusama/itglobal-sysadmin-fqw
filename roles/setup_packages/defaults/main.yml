@@ -1,1 +1,6 @@
 ---
+packages:
+  - mc
+  - htop
+  - atop
+  - ncdu

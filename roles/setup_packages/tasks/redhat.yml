@@ -1,0 +1,16 @@
+---   
+- name: "Upgrade all packages (yum)"
+  yum:
+    name: "*"
+    state: latest
+    update_cache: true
+
+- name: "Enable EPEL repository (yum)"
+  yum:
+    name: oracle-epel-release-el9
+    state: present
+
+- name: "Install packages (yum)"
+  yum:
+    name: "{{ packages }}"
+    state: latest

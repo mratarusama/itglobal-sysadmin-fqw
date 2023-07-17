@@ -1,0 +1,16 @@
+---   
+- name: "Upgrade all packages (apt)"
+  apt:
+    name: "*"
+    state: latest
+    update_cache: true
+
+- name: "Enable EPEL repository (apt)"
+  apt:
+    name: oracle-epel-release-el9
+    state: present
+
+- name: "Install packages (apt)"
+  apt:
+    name: "{{ packages }}"
+    state: latest

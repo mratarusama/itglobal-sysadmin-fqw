@@ -1,1 +1,16 @@
 ---
+- name: "Change SSH Port"
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "^#?Port"
+    line: "Port {{ new_ssh_port }}"
+    state: present
+  notify: Restart SSH
+
+- name: "Disable password authentication for SSH access"
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "^#?PasswordAuthentication"
+    line: "PasswordAuthentication no"
+    state: present
+  notify: Restart SSH

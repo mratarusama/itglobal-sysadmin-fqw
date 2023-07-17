@@ -1,1 +1,13 @@
 ---
+- name: "Create new user for RHEL"
+  import_tasks: redhat.yml
+  when: ansible_facts['os_family']|lower == 'redhat'
+
+- name: "Create new user for Debian"
+  import_tasks: debian.yml
+  when: ansible_facts['os_family']|lower == 'debian'
+
+- name: "Add SSH Public Key for new user"
+  authorized_key:
+    user: "{{ new_user_name }}"
+    key: "{{ lookup('file', ssh_public_key_file) }}"

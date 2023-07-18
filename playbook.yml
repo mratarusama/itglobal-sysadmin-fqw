@@ -2,6 +2,6 @@
 - hosts: all
   become: true
   roles:
-    - setup_packages
-    - create_user
-    - configure_auth
+    - { role: setup_packages, tags: setup_packages }
+    - { role: create_user, tags: create_user }
+    - { role: configure_auth, tags: configure_auth }

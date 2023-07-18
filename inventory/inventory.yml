@@ -1,6 +1,10 @@
 practice:
   hosts:
-    my_serverspace_host:
+    my_serverspace_host_1:
       ansible_host: 93.183.73.131
-      ansible_port: 10022
+      ansible_port: 22
+      ansible_user: root
+    my_serverspace_host_2:
+      ansible_host: 93.183.73.241
+      ansible_port: 22
       ansible_user: root

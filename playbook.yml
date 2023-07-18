@@ -1,7 +1,8 @@
 ---
-- hosts: all
+- hosts: practice
   become: true
   roles:
     - { role: setup_packages, tags: setup_packages }
     - { role: create_user, tags: create_user }
     - { role: configure_auth, tags: configure_auth }
+    - { role: configure_nginx, tags: configure_nginx }

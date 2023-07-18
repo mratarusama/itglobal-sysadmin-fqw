@@ -1,0 +1,3 @@
+---
+nginx_user: "nginx"
+listen_port: 80

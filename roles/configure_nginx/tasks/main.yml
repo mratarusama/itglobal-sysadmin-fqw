@@ -1,0 +1,22 @@
+---   
+- name: "Install nginx"
+  yum:
+    name: nginx
+    state: latest
+
+- name: "Create /var/www/html directory"
+  file:
+    path: /var/www/html
+    state: directory
+    owner: "{{ nginx_user }}"
+
+- name: "Replace index.html file"
+  copy:
+    src: index.html
+    dest: /var/www/html/index.html
+
+- name: "Replace nginx.conf"
+  template:
+    src: templates/nginx.conf
+    dest: /etc/nginx/nginx.conf
+  notify: Restart nginx
